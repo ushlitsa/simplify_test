@@ -4,7 +4,6 @@ class CreateAcc():
 
     def __init__(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(5)
 
 
     def filling_fields(self,user_dictionary):
@@ -25,5 +24,5 @@ class CreateAcc():
             username_field.clear()
             username_field.send_keys(email)
             next_button.click()
-            assert validation_error not in self.driver.page_source
             time.sleep(1)
+            assert validation_error in self.driver.page_source
